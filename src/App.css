@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  width: 100%;
+  min-width: 340px;
+  min-height: 100dvh;
+  margin: 0 0;
+  padding: 0;
+  text-align: left;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0;
+  margin: 0 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9;
+}
