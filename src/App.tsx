@@ -1,6 +1,6 @@
 /*
 
-
+우리은행 6091 2623 118 756
 */
 
 // import { useState } from "react";tt
@@ -16,7 +16,7 @@ function App() {
   console.log(theme);
 
   return (
-    <div className="wrapper dark:bg-foreground dark:text-white w-[calc(100%)] p-4">
+    <div className="wrapper bg-background w-[calc(100%)] p-4">
       <ModeToggle />
       <h1>hello</h1>
       <FormTry01 />

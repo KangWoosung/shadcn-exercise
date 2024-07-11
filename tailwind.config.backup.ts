@@ -17,12 +17,7 @@ module.exports = {
       },
     },
     extend: {
-      boxShadow: {
-        // Card Shadow
-        card: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-      },
       colors: {
-        /********  ShadCN  ********/
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -56,51 +51,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        /********  End of ShadCN  ********/
-
-        /********  Custom Presets  ********/
-        // buttons presets
-        "primary-button": {
-          DEFAULT: "var(--primary-foreground)",
-          background: "var(--primary-background)",
-          border: "var(--primary-border)",
-        },
-
-        "secondary-button": {
-          DEFAULT: "var(--secondary-foreground)",
-          background: "var(--secondary-background)",
-          border: "var(--secondary-border)",
-        },
-        // Card Background Colors
-        "primary-card-background": {
-          DEFAULT: "var(--primary-card-background)",
-        },
-        /********  End of Custom Presets  ********/
+        warning: "hsl(var(--warning))",
+        "warning-foreground": "hsl(var(--warning-foreground))",
       },
-      borderColor: {
-        // Card Border Colors
-        "card-border": {
-          DEFAULT: "var(--primary-border)",
-        },
-      },
-      // backgroundColor 는 대형 요소에 대해서만 여기서 설정해준다.
-      // button 등, card 까지의 소형 요소 백그라운드 컬러는 color 섹션에서 담당해주자.
-      // 사용예제: bg-primary-wrapper
-      backgroundColor: {
-        // wrapper presets
-        "primary-wrapper": {
-          DEFAULT: "var(--app-background)",
-        },
-        "secondary-wrapper": {
-          DEFAULT: "var(--app-background)",
-        },
-      },
-      // 사용예제: p-primary-button
-      padding: {
-        "primary-button": "0.6rem 2rem",
-        "secondary-button": "0.4rem 1.2rem",
-      },
-      // 사용예제
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -119,6 +72,29 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+
+      backgroundColor: {
+        skin: {
+          base: "rgb(var(--background) / <alpha-value>)",
+          muted: "rgb(var(--muted) / <alpha-value>)",
+          input: "rgb(var(--input) / <alpha-value>)",
+        },
+      },
+      textColor: {
+        skin: {
+          base: "rgb(var(--foreground) / <alpha-value>)",
+        },
+      },
+      borderColor: {
+        skin: {
+          base: "rgb(var(--border) / <alpha-value>)",
+        },
+      },
+      ringColor: {
+        skin: {
+          base: "rgb(var(--ring) / <alpha-value>)",
+        },
       },
     },
   },

@@ -2,82 +2,162 @@
 @tailwind components;
 @tailwind utilities;
 
+  @layer base {
+    :root {
+      /**************** ShadCN  ****************/
+      --background: 0, 0%, 100%;
+      --foreground: 20, 14.3%, 4.1%;
+      
+      --card: 0, 0%, 100%;
+      --card-foreground: 20, 14.3%, 4.1%;
+      
+      --popover: 0, 0%, 100%;
+      --popover-foreground: 20, 14.3%, 4.1%;
+      
+      --primary: 24, 9.8%, 10%;
+      --primary-foreground: 60, 9.1%, 97.8%;
+      
+      --secondary: 60, 4.8%, 95.9%;
+      --secondary-foreground: 24, 9.8%, 10%;
+      
+      --muted: 60, 4.8%, 95.9%;
+      --muted-foreground: 25, 5.3%, 44.7%;
+      
+      --accent: 60, 4.8%, 95.9%;
+      --accent-foreground: 24, 9.8%, 10%;
+      
+      --destructive: 0, 84.2%, 60.2%;
+      --destructive-foreground: 60, 9.1%, 97.8%;
+      
+      --border: 20, 5.9%, 90%;
+      --input: 20, 5.9%, 90%;
+      --ring: 20, 14.3%, 4.1%;
+      
+      /**************** END of ShadCN  ****************/
 
-/* 추가적인 전역 스타일 */
-body {
-    @apply bg-gray-100;
+      /**************** Custom  Presets  ****************/
+    --app-background: 228, 10%, 90%;
+    --primary-foreground: 226, 8%, 31%;
+    --primary-background: 240, 10%, 78%;
+    --primary-border: 0, 38%, 53%;
+    --primary-card-background: 0, 0%, 100%;
+    --secondary-foreground: 0, 0%, 100%;
+    --secondary-background: 0, 0%, 100%;
+    --secondary-border: 0, 0%, 100%;
+    /**************** End  of Custom  Presets  ****************/
+
+      --radius: 0.5rem;
+    }
+
+    /********  Dark Mode .. 커스텀 클래스를 추가하면 테밍을 구성할 수 있다.  ********/
+    .dark {
+        /**************** ShadCN  ****************/
+        --background: 20, 14.3%, 4.1%;
+        --foreground: 60, 9.1%, 97.8%;
+
+        --card: 20, 14.3%, 4.1%;
+        --card-foreground: 60, 9.1%, 97.8%;
+
+        --popover: 20, 14.3%, 4.1%;
+        --popover-foreground: 60, 9.1%, 97.8%;
+
+        --primary: 60, 9.1%, 97.8%;
+        --primary-foreground: 24, 9.8%, 10%;
+
+        --secondary: 12, 6.5%, 15.1%;
+        --secondary-foreground: 60, 9.1%, 97.8%;
+
+        --muted: 12, 6.5%, 15.1%;
+        --muted-foreground: 24, 5.4%, 63.9%;
+
+        --accent: 12, 6.5%, 15.1%;
+        --accent-foreground: 60, 9.1%, 97.8%;
+
+        --destructive: 0, 62.8%, 30.6%;
+        --destructive-foreground: 60, 9.1%, 97.8%;
+
+        --border: 12, 6.5%, 15.1%;
+        --input: 12, 6.5%, 15.1%;
+        --ring: 24, 5.7%, 82.9%;
+
+      /**************** END of ShadCN  ****************/
+
+      
+    /**************** Custom  Presets  ****************/
+    --app-background: 0, 0%, 10%;
+    --primary-foreground: 0, 0%, 100%;
+    --primary-background: 0, 88%, 19%;
+    --primary-border: 0, 30%, 48%;
+    --primary-card-background: 0, 0%, 10%;
+    --secondary-foreground: 0, 0%, 100%;
+    --secondary-background: 0, 0%, 10%;
+    --secondary-border: 0, 0%, 100%;
+    /**************** End of Custom  Presets  ****************/
+    }
+    
+    /********  Custom Mode .. 이렇게 커스텀 클래스를 추가하면 테밍을 구성할 수 있다.  ********/
+    .indigobaby {
+        /**************** ShadCN  ****************/
+        --background: 231, 48%, 48%;
+        --foreground: 231, 15%, 18%;
+        
+        --card: 231, 48%, 48%;
+        --card-foreground: 231, 15%, 18%;
+        
+        --popover: 231, 48%, 48%;
+        --popover-foreground: 231, 15%, 18%;
+        
+        --primary: 231, 48%, 48%;
+        --primary-foreground: 231, 15%, 18%;
+        
+        --secondary: 231, 38%, 58%;
+        --secondary-foreground: 231, 15%, 18%;
+        
+        --muted: 231, 38%, 58%;
+        --muted-foreground: 231, 15%, 18%;
+        
+        --accent: 231, 38%, 58%;
+        --accent-foreground: 231, 15%, 18%;
+        
+        --destructive: 0, 48%, 58%;
+        --destructive-foreground: 231, 15%, 18%;
+        
+        --border: 231, 28%, 68%;
+        --input: 231, 28%, 68%;
+        --ring: 231, 15%, 18%;
+        
+        
+        /**************** END of ShadCN  ****************/
+
+        /**************** Custom  Presets  ****************/
+        --app-background: 230, 25%, 18%;
+        --primary-foreground: 230, 100%, 98%;
+        --primary-background: 230, 85%, 35%;
+        --primary-border: 230, 60%, 50%;
+        --primary-card-background: 230, 25%, 18%;
+        --secondary-foreground: 230, 100%, 98%;
+        --secondary-background: 230, 25%, 18%;
+        --secondary-border: 230, 100%, 98%;
+        /**************** End of Custom  Presets  ****************/
+        
+    }
   }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
+  }
+
   
-:root {
-    --background: 255 255 255;
-    --foreground: 15 23 42;
-    --muted: 241 245 249;
-    --border: 226 232 240;
-    --input: 255 255 255;
-    --ring: 59 130 246;
+/* .rdp-caption_dropdowns {
+    @apply flex items-center justify-center gap-1;
+  } */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 38 92% 50%;
-    --destructive-foreground: 210 40% 98%;
-    
-    --warning: 38 92% 50%;
-    --warning-foreground: 48 96% 89%;
-
-    --radius: 0.5rem;
-}
-
-
- 
-.dark {
-    --background: 15 23 42;
-    --foreground: 241 245 249;
-    --muted: 51 65 85;
-    --border: 51 65 85;
-    --input: 30 41 59;
-    --ring: 59 130 246;
-
-    --warning: 48 96% 89%;
-    --warning-foreground: 38 92% 50%;
-}
-
-.form-label {
-    @apply text-skin-base dark:text-gray-200;
-  }
-.dark .form-label {
-    @apply text-gray-200 !important;
-}
-
-.select-trigger[data-placeholder]:not([data-state="open"]) {
-    @apply text-muted-foreground dark:text-gray-400;
-  }
-.select-content {
-    @apply bg-gray-800 dark:bg-gray-700;
-}
-.select-item {
-    @apply text-gray-300 dark:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-gray-100 dark:hover:text-gray-200;
-}
-.select-value {
-    @apply text-skin-base dark:text-gray-200;
-  }
-.select-value [data-placeholder] {
-    @apply text-muted-foreground dark:text-gray-400;
-}
   
-  .form-description {
-    @apply text-skin-base dark:text-gray-300;
+  select::-webkit-scrollbar {
+    display: none;
   }

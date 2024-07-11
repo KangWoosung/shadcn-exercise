@@ -6,7 +6,9 @@ https://ui.shadcn.com/docs/dark-mode/vite
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "system";
+const themeList = ["dark", "light", "indigobaby", "system"] as const;
+
+type Theme = (typeof themeList)[number];
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -39,7 +41,10 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
-    root.classList.remove("light", "dark");
+    // root.classList.remove("light", "dark", "indigobaby");
+    themeList.forEach((theme) => {
+      root.classList.remove(theme);
+    });
 
     if (theme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")

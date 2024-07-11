@@ -8,7 +8,6 @@ import { UserType } from "@/schemas/UserFormSchema";
 import {
   FormField,
   FormItem,
-  FormLabel,
   FormControl,
   FormDescription,
   FormMessage,
@@ -20,10 +19,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import FormTitle from "./FormTitle";
+import { useFormFieldError } from "./UseFormFieldError";
+import { cn } from "@/lib/utils";
 
+// 추가로, ShadCNSelect를 사용할 때 name prop의 타입을 제한하여 문자열 값을 갖는 필드에만 사용할 수 있도록 할 수 있습니다:
 type ShadCNSelectProps = {
   form: UseFormReturn<UserType>;
   name: keyof UserType;
+  //   name: Extract<keyof UserType, { [K in keyof UserType]: UserType[K] extends string ? K : never }[keyof UserType]>;
   label: string;
   description?: string;
   placeholder?: string;
@@ -38,34 +42,32 @@ const ShadCNSelect = ({
   placeholder,
   options,
 }: ShadCNSelectProps) => {
+  const { error } = useFormFieldError(name);
+
   return (
     <FormField
       control={form.control}
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="text-skin-base dark:text-gray-200">
-            {label}
-          </FormLabel>
+          <FormTitle>{label}</FormTitle>
           <Select
             onValueChange={field.onChange}
             defaultValue={field.value as string | undefined}
           >
             <FormControl>
-              <SelectTrigger className="bg-skin-input text-skin-base border-skin-base focus:ring-skin-base select-trigger">
-                <SelectValue
-                  placeholder={placeholder}
-                  className="select-value"
-                />
+              <SelectTrigger
+                className={cn(
+                  error && "border-destructive",
+                  "space-y-0  rounded-lg border p-4"
+                )}
+              >
+                <SelectValue placeholder={placeholder} />
               </SelectTrigger>
             </FormControl>
-            <SelectContent className="select-content">
+            <SelectContent>
               {options.map((option) => (
-                <SelectItem
-                  key={option.value}
-                  value={option.value}
-                  className="select-item"
-                >
+                <SelectItem key={option.value} value={option.value}>
                   {option.label}
                 </SelectItem>
               ))}
