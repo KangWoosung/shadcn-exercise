@@ -26,7 +26,6 @@ import { Button } from "./ui/button";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
-import { SelectSingleEventHandler } from "react-day-picker";
 
 // type Matcher = boolean | ((date: Date) => boolean) | Date | Date[] | DateRange | DateBefore | DateAfter | DateInterval | DayOfWeek;
 
@@ -45,11 +44,6 @@ const ShadCNInputDate = ({
   description,
 }: ShadCNInputProps) => {
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
-
-  const handleOnSelect: SelectSingleEventHandler = (date) => {
-    onSelect?.(date);
-    setIsPopoverOpen(false);
-  };
 
   const { error } = useFormFieldError(name);
 

@@ -94,6 +94,7 @@ function Calendar({
               onValueChange={(value) => {
                 handleChange(value);
               }}
+              {...props}
             >
               <SelectTrigger className="pr-1.5 focus:ring-0">
                 <SelectValue>{selected?.props?.children}</SelectValue>
@@ -113,8 +114,13 @@ function Calendar({
             </Select>
           );
         },
-        IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4" />,
-        IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4" />,
+        // eslint-disable-next-line no-unused-vars
+        IconLeft: ({ ...props }) => (
+          <ChevronLeft className="h-4 w-4" {...props} />
+        ),
+        IconRight: ({ ...props }) => (
+          <ChevronRight className="h-4 w-4" {...props} />
+        ),
       }}
       {...props}
     />
