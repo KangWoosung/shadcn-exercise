@@ -20,7 +20,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import FormTitle from "./FormTitle";
-import { useFormFieldError } from "./UseFormFieldError";
+// import { useFormFieldError } from "./UseFormFieldError";
 import { cn } from "@/lib/utils";
 
 // 추가로, ShadCNSelect를 사용할 때 name prop의 타입을 제한하여 문자열 값을 갖는 필드에만 사용할 수 있도록 할 수 있습니다:
@@ -32,6 +32,7 @@ type ShadCNSelectProps = {
   description?: string;
   placeholder?: string;
   options: { value: string; label: string }[];
+  className?: string;
 };
 
 const ShadCNSelect = ({
@@ -41,8 +42,12 @@ const ShadCNSelect = ({
   description,
   placeholder,
   options,
+  className,
 }: ShadCNSelectProps) => {
-  const { error } = useFormFieldError(name);
+  const {
+    formState: { errors },
+  } = form;
+  const error = errors[name]?.message;
 
   return (
     <FormField
@@ -59,6 +64,7 @@ const ShadCNSelect = ({
               <SelectTrigger
                 className={cn(
                   error && "border-destructive",
+                  className,
                   "space-y-0  rounded-lg border p-4"
                 )}
               >

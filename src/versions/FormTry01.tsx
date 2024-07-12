@@ -10,17 +10,19 @@ Design GUI 테스트
 
 */
 
+import ShadCNButtton from "@/components/ShadCNButtton";
 import ShadCNCheckbox from "@/components/ShadCNCheckbox";
 import ShadCNInput from "@/components/ShadCNInput";
 import ShadCNInputDate from "@/components/ShadCNInputDate";
 import ShadCNRadioGroup from "@/components/ShadCNRadioGroup";
 import ShadCNSelect from "@/components/ShadCNSelect";
 import ShadCNSwitch from "@/components/ShadCNSwitch";
-import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { UserFormSchema, UserType } from "@/schemas/UserFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { HiCode } from "react-icons/hi";
+import { CgDanger } from "react-icons/cg";
 
 const hobbies = [
   { value: "yoga", label: "Yoga" },
@@ -41,9 +43,6 @@ const FormTry01 = () => {
     defaultValues: {
       userName: "",
       email: "",
-      // dateOfBirth: new Date(),
-      // gender: "male",
-      // terms: false,
     },
   });
 
@@ -63,68 +62,93 @@ const FormTry01 = () => {
             form={form}
             name="userName"
             label="Username"
+            className=""
             placeholder="Enter your username"
-            // description="Enter your username lorem ipsum"
           />
           <ShadCNInput
             form={form}
             name="email"
             label="Email"
+            className=""
             placeholder="Enter your email address"
-            // description="Enter your email address lorem ipsum dolor sit amet."
           />
           <ShadCNInputDate
             form={form}
             name="dateOfBirth"
             label="Date of Birth"
+            className=""
             placeholder="Choose your date of birth"
-            // description="Enter your date of birth lorem ipsum dolor sit amet."
           />
           <ShadCNSelect
             form={form}
             name="hobby"
             label="Hobby"
+            className=""
             placeholder="Select your hobby"
-            // description="Enter your hobby lorem ipsum dolor sit amet."
             options={hobbies}
           />
           <ShadCNRadioGroup
             form={form}
             name="gender"
             label="Gender"
-            // description="Select your gender"
+            className=""
             options={genders}
           />
           <ShadCNSwitch
             form={form}
             name="newsLetter"
             label="News Letter"
+            className=""
             description="Receive News Letter lorem ipsum dolor sit amet."
           />
           <ShadCNCheckbox
             form={form}
             name="terms"
+            className=""
             label="Terms and Conditions"
             description="I agree to the terms and conditions lorem ipsum dolor sit amet."
           />
-          <Button
-            type="submit"
-            className="text-primary-button bg-primary-button-background border-primary-button-border border border-solid "
-          >
-            Submit .................
-          </Button>
-          <button
-            type="submit"
-            className="p-primary-button bg-primary-button-background text-primary-button border-primary-button-border border border-solid "
-          >
-            Primary Button
-          </button>
-          <button
-            type="submit"
-            className="p-secondary-button bg-secondary-button-background text-secondary-button border-secondary-button-border border border-solid "
-          >
-            secondary Button
-          </button>
+          {/* 버튼에 아이콘도 넣어서 전달해주자. */}
+          <div className="flex flex-row justify-center items-center gap-2">
+            <ShadCNButtton
+              form={form}
+              type="submit"
+              variant="default"
+              size="default"
+              className="flex flex-row gap-2"
+            >
+              <HiCode color="red" fontSize="1.5em" />
+              Primary Button
+            </ShadCNButtton>
+            <ShadCNButtton
+              form={form}
+              type="submit"
+              variant="outline"
+              size="sm"
+              className="flex flex-row gap-2"
+            >
+              <HiCode color="gold" fontSize="1.2em" />
+              Secondary Button
+            </ShadCNButtton>
+            <ShadCNButtton
+              form={form}
+              variant="ghost"
+              size="ssm"
+              className="flex flex-row gap-2"
+            >
+              <HiCode color="cyan" fontSize="1.2em" />
+              Ghost Button
+            </ShadCNButtton>
+            <ShadCNButtton
+              form={form}
+              variant="destructive"
+              size="xlg"
+              className="flex flex-row gap-2"
+            >
+              <CgDanger color="crimson" fontSize="1.5em" />
+              Danger Button
+            </ShadCNButtton>
+          </div>
         </form>
       </Form>
     </div>

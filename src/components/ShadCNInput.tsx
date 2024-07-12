@@ -15,7 +15,6 @@ import { Input } from "./ui/input";
 import { UseFormReturn } from "react-hook-form";
 import { UserType } from "@/schemas/UserFormSchema";
 import FormTitle from "./FormTitle";
-import { useFormFieldError } from "./UseFormFieldError";
 import { cn } from "@/lib/utils";
 
 type ShadCNInputProps = {
@@ -24,6 +23,7 @@ type ShadCNInputProps = {
   label: string;
   placeholder?: string;
   description?: string;
+  className?: string;
 };
 
 const ShadCNInput = ({
@@ -32,8 +32,12 @@ const ShadCNInput = ({
   label,
   placeholder,
   description,
+  className,
 }: ShadCNInputProps) => {
-  const { error } = useFormFieldError(name);
+  const {
+    formState: { errors },
+  } = form;
+  const error = errors[name]?.message;
 
   return (
     <FormField
@@ -48,6 +52,7 @@ const ShadCNInput = ({
               {...field}
               value={field.value as string}
               className={cn(
+                className,
                 error && "border-destructive",
                 "space-y-0  rounded-lg border p-4"
               )}

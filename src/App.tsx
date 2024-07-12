@@ -1,6 +1,6 @@
 /*
 
-우리은행 6091 2623 118 756
+
 */
 
 // import { useState } from "react";tt

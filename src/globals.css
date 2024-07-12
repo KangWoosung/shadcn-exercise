@@ -94,18 +94,28 @@
     --secondary-border: 0, 0%, 100%;
     /**************** End of Custom  Presets  ****************/
     }
-    
+    /* #a5b4fc */
     /********  Custom Mode .. 이렇게 커스텀 클래스를 추가하면 테밍을 구성할 수 있다.  ********/
     .indigobaby {
+      --indigo-primary-50: 226, 100%, 97%;
+      --indigo-primary-100: 226, 100%, 94%;
+      --indigo-primary-200: 228, 96%, 89%;
+      --indigo-primary-300: 230, 93%, 82%;
+      --indigo-primary-400: 234, 89%, 74%;
+      --indigo-primary-500: 239, 84%, 67%;
+      --indigo-primary-600: 243, 75%, 59%;
+      --indigo-primary-700: 245, 58%, 51%;
+      --indigo-primary-800: 244, 55%, 41%;
+      --indigo-primary-900: 242, 47%, 34%;
         /**************** ShadCN  ****************/
-        --background: 231, 48%, 48%;
-        --foreground: 231, 15%, 18%;
+        --background: 228, 96%, 89%;
+        --foreground: 242, 47%, 34%;
         
         --card: 231, 48%, 48%;
         --card-foreground: 231, 15%, 18%;
         
-        --popover: 231, 48%, 48%;
-        --popover-foreground: 231, 15%, 18%;
+        --popover: 242, 47%, 34%;
+        --popover-foreground: 226, 100%, 97%;
         
         --primary: 231, 48%, 48%;
         --primary-foreground: 231, 15%, 18%;
@@ -114,10 +124,10 @@
         --secondary-foreground: 231, 15%, 18%;
         
         --muted: 231, 38%, 58%;
-        --muted-foreground: 231, 15%, 18%;
+        --muted-foreground: 234, 89%, 74%;
         
         --accent: 231, 38%, 58%;
-        --accent-foreground: 231, 15%, 18%;
+        --accent-foreground: 226, 100%, 94%;
         
         --destructive: 0, 48%, 58%;
         --destructive-foreground: 231, 15%, 18%;
@@ -139,6 +149,18 @@
         --secondary-background: 230, 25%, 18%;
         --secondary-border: 230, 100%, 98%;
         /**************** End of Custom  Presets  ****************/
+
+        
+        --indigo-primary-50: theme('colors.indigo.50');
+        --indigo-primary-100: theme('colors.indigo.100');
+        --indigo-primary-200: theme('colors.indigo.200');
+        --indigo-primary-300: theme('colors.indigo.300');
+        --indigo-primary-400: theme('colors.indigo.400');
+        --indigo-primary-500: theme('colors.indigo.500');
+        --indigo-primary-600: theme('colors.indigo.600');
+        --indigo-primary-700: theme('colors.indigo.700');
+        --indigo-primary-800: theme('colors.indigo.800');
+        --indigo-primary-900: theme('colors.indigo.900');
         
     }
   }
@@ -151,13 +173,7 @@
       @apply bg-background text-foreground;
     }
   }
-
-  
-/* .rdp-caption_dropdowns {
-    @apply flex items-center justify-center gap-1;
-  } */
-
-  
   select::-webkit-scrollbar {
     display: none;
   }
+

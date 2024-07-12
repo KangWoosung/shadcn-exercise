@@ -15,7 +15,6 @@ import {
 import { UseFormReturn } from "react-hook-form";
 import { UserType } from "@/schemas/UserFormSchema";
 import FormTitle from "./FormTitle";
-import { useFormFieldError } from "./UseFormFieldError";
 import { cn } from "@/lib/utils";
 import {
   Popover,
@@ -35,6 +34,7 @@ type ShadCNInputProps = {
   label: string;
   placeholder?: string;
   description?: string;
+  className?: string;
 };
 
 const ShadCNInputDate = ({
@@ -42,10 +42,14 @@ const ShadCNInputDate = ({
   name,
   placeholder,
   description,
+  className,
 }: ShadCNInputProps) => {
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
 
-  const { error } = useFormFieldError(name);
+  const {
+    formState: { errors },
+  } = form;
+  const error = errors[name]?.message;
 
   return (
     <FormField
@@ -61,6 +65,7 @@ const ShadCNInputDate = ({
                   variant={"outline"}
                   className={cn(
                     error && "border-destructive",
+                    className,
                     "w-[240px] pl-3 text-left font-normal",
                     !field.value && "text-muted-foreground"
                   )}

@@ -16,7 +16,6 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import FormTitle from "./FormTitle";
 import { cn } from "@/lib/utils";
-import { useFormFieldError } from "./UseFormFieldError";
 
 type ShadCNRadioGroupProps = {
   form: UseFormReturn<UserType>;
@@ -24,6 +23,7 @@ type ShadCNRadioGroupProps = {
   label: string;
   description?: string;
   options: { value: string; label: string }[];
+  className?: string;
 };
 
 const ShadCNRadioGroup = ({
@@ -32,8 +32,12 @@ const ShadCNRadioGroup = ({
   label,
   description,
   options,
+  className,
 }: ShadCNRadioGroupProps) => {
-  const { error } = useFormFieldError(name);
+  const {
+    formState: { errors },
+  } = form;
+  const error = errors[name]?.message;
 
   return (
     <FormField
@@ -45,6 +49,7 @@ const ShadCNRadioGroup = ({
           <div
             className={cn(
               error && "border-destructive",
+              className,
               "flex flex-row items-center justify-start space-x-10 space-y-0  rounded-lg border p-4"
             )}
           >

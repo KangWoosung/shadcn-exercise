@@ -14,6 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Switch } from "@/components/ui/switch";
+import FormTitle from "./FormTitle";
+import { cn } from "@/lib/utils";
 
 type ShadCNSwitchProps = {
   form: UseFormReturn<UserType>;
@@ -21,21 +23,20 @@ type ShadCNSwitchProps = {
   label: string;
   description?: string;
   options?: { value: string; label: string }[];
+  className?: string;
 };
-
-import React from "react";
-import FormTitle from "./FormTitle";
-import { useFormFieldError } from "./UseFormFieldError";
-import { cn } from "@/lib/utils";
 
 const ShadCNSwitch = ({
   form,
   name,
   label,
   description,
+  className,
 }: ShadCNSwitchProps) => {
-  const { error } = useFormFieldError(name);
-  console.log(error);
+  const {
+    formState: { errors },
+  } = form;
+  const error = errors[name]?.message;
 
   return (
     <FormField
@@ -47,6 +48,7 @@ const ShadCNSwitch = ({
           <div
             className={cn(
               error && "border-destructive",
+              className,
               "flex flex-row items-center justify-start space-x-10 space-y-0  rounded-lg border p-4"
             )}
           >
