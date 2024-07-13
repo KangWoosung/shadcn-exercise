@@ -8,6 +8,7 @@
 import "./App.css";
 import { useTheme } from "./components/ThemeProvider";
 import { ModeToggle } from "./components/ThemeToggler";
+import { Toaster } from "./components/ui/toaster";
 import FormTry01 from "./versions/FormTry01";
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
   return (
     <div className="wrapper bg-background w-[calc(100%)] p-4">
       <ModeToggle />
-      <h1>hello</h1>
+      <h1>hello world</h1>
       <FormTry01 />
+      <Toaster />
     </div>
   );
 }

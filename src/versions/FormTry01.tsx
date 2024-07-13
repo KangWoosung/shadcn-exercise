@@ -10,7 +10,7 @@ Design GUI 테스트
 
 */
 
-import ShadCNButtton from "@/components/ShadCNButtton";
+import ShadCNButton from "@/components/ShadCNButton";
 import ShadCNCheckbox from "@/components/ShadCNCheckbox";
 import ShadCNInput from "@/components/ShadCNInput";
 import ShadCNInputDate from "@/components/ShadCNInputDate";
@@ -23,6 +23,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { HiCode } from "react-icons/hi";
 import { CgDanger } from "react-icons/cg";
+import CVALinkText from "@/components/CVALinkText";
+import "./styles/style.css";
+import CVALinkButton from "@/components/CVALinkButton";
+import { FaLinkedin } from "react-icons/fa";
+import { toast } from "@/components/ui/use-toast";
+import ShadCNDialog from "@/components/ShadCNDialog";
+import { useState } from "react";
 
 const hobbies = [
   { value: "yoga", label: "Yoga" },
@@ -45,9 +52,16 @@ const FormTry01 = () => {
       email: "",
     },
   });
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const onSubmit = (data: UserType) => {
     console.log(data);
+    toast({
+      title: "Form submitted successfully",
+      description: `
+      You yourself, as much as anybody in the entire universe, deserve your love and affection.
+      `,
+    });
   };
 
   return (
@@ -110,7 +124,7 @@ const FormTry01 = () => {
           />
           {/* 버튼에 아이콘도 넣어서 전달해주자. */}
           <div className="flex flex-row justify-center items-center gap-2">
-            <ShadCNButtton
+            <ShadCNButton
               form={form}
               type="submit"
               variant="default"
@@ -119,8 +133,8 @@ const FormTry01 = () => {
             >
               <HiCode color="red" fontSize="1.5em" />
               Primary Button
-            </ShadCNButtton>
-            <ShadCNButtton
+            </ShadCNButton>
+            <ShadCNButton
               form={form}
               type="submit"
               variant="outline"
@@ -129,27 +143,60 @@ const FormTry01 = () => {
             >
               <HiCode color="gold" fontSize="1.2em" />
               Secondary Button
-            </ShadCNButtton>
-            <ShadCNButtton
+            </ShadCNButton>
+            <ShadCNButton
               form={form}
               variant="ghost"
-              size="ssm"
+              size="xs"
               className="flex flex-row gap-2"
             >
               <HiCode color="cyan" fontSize="1.2em" />
               Ghost Button
-            </ShadCNButtton>
-            <ShadCNButtton
+            </ShadCNButton>
+            <ShadCNButton
               form={form}
               variant="destructive"
               size="xlg"
-              className="flex flex-row gap-2"
+              className="flex flex-row gap-2 group"
             >
-              <CgDanger color="crimson" fontSize="1.5em" />
+              <CgDanger
+                className="group-hover:animate-ping"
+                color="crimson"
+                fontSize="1.5em"
+              />
               Danger Button
-            </ShadCNButtton>
+            </ShadCNButton>
           </div>
         </form>
+        <div className="flex flex-row justify-center items-center gap-4 mt-4 mb-10">
+          <CVALinkText href="/" variant="left" size="sm" className="text-lg">
+            About
+          </CVALinkText>
+          <CVALinkText href="/" size="sm" className="text-lg">
+            Price
+          </CVALinkText>
+          <CVALinkText href="/" variant="right" size="sm" className="text-lg">
+            Contact
+          </CVALinkText>
+          <CVALinkText
+            href="/"
+            variant="thickness"
+            size="sm"
+            className="text-lg"
+          >
+            Hover me
+          </CVALinkText>
+          <CVALinkButton
+            href="/"
+            variant="subtle"
+            size="sm"
+            className="flex flex-row gap-2"
+          >
+            <FaLinkedin color="gold" fontSize="1.2em" />
+            Link Button
+          </CVALinkButton>
+          <ShadCNDialog open={dialogOpen} onOpenChange={setDialogOpen} />
+        </div>
       </Form>
     </div>
   );

@@ -18,7 +18,7 @@ import FormTitle from "./FormTitle";
 import { cn } from "@/lib/utils";
 
 // ShadCNCheckboxProps의 name 타입을 제한하여 boolean 타입의 필드에만 사용할 수 있도록 했습니다:
-type ShadCNCheckboxProps = {
+type ShadCNCheckboxProps = React.HTMLAttributes<HTMLInputElement> & {
   form: UseFormReturn<UserType>;
   //   name: keyof UserType;
   name: Extract<

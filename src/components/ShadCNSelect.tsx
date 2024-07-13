@@ -24,7 +24,7 @@ import FormTitle from "./FormTitle";
 import { cn } from "@/lib/utils";
 
 // 추가로, ShadCNSelect를 사용할 때 name prop의 타입을 제한하여 문자열 값을 갖는 필드에만 사용할 수 있도록 할 수 있습니다:
-type ShadCNSelectProps = {
+type ShadCNSelectProps = React.HTMLAttributes<HTMLSelectElement> & {
   form: UseFormReturn<UserType>;
   name: keyof UserType;
   //   name: Extract<keyof UserType, { [K in keyof UserType]: UserType[K] extends string ? K : never }[keyof UserType]>;

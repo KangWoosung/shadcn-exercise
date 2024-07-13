@@ -151,17 +151,6 @@
         /**************** End of Custom  Presets  ****************/
 
         
-        --indigo-primary-50: theme('colors.indigo.50');
-        --indigo-primary-100: theme('colors.indigo.100');
-        --indigo-primary-200: theme('colors.indigo.200');
-        --indigo-primary-300: theme('colors.indigo.300');
-        --indigo-primary-400: theme('colors.indigo.400');
-        --indigo-primary-500: theme('colors.indigo.500');
-        --indigo-primary-600: theme('colors.indigo.600');
-        --indigo-primary-700: theme('colors.indigo.700');
-        --indigo-primary-800: theme('colors.indigo.800');
-        --indigo-primary-900: theme('colors.indigo.900');
-        
     }
   }
 

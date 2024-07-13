@@ -17,7 +17,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import FormTitle from "./FormTitle";
 import { cn } from "@/lib/utils";
 
-type ShadCNRadioGroupProps = {
+type ShadCNRadioGroupProps = React.HTMLAttributes<HTMLInputElement> & {
   form: UseFormReturn<UserType>;
   name: keyof UserType;
   label: string;

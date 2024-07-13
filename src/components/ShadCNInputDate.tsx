@@ -28,7 +28,7 @@ import { format } from "date-fns";
 
 // type Matcher = boolean | ((date: Date) => boolean) | Date | Date[] | DateRange | DateBefore | DateAfter | DateInterval | DayOfWeek;
 
-type ShadCNInputProps = {
+type ShadCNInputProps = React.HTMLAttributes<HTMLInputElement> & {
   form: UseFormReturn<UserType>;
   name: keyof UserType;
   label: string;

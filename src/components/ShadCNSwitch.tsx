@@ -17,7 +17,7 @@ import { Switch } from "@/components/ui/switch";
 import FormTitle from "./FormTitle";
 import { cn } from "@/lib/utils";
 
-type ShadCNSwitchProps = {
+type ShadCNSwitchProps = React.HTMLAttributes<HTMLInputElement> & {
   form: UseFormReturn<UserType>;
   name: keyof UserType;
   label: string;

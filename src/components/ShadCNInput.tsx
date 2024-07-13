@@ -17,7 +17,7 @@ import { UserType } from "@/schemas/UserFormSchema";
 import FormTitle from "./FormTitle";
 import { cn } from "@/lib/utils";
 
-type ShadCNInputProps = {
+type ShadCNInputProps = React.HTMLAttributes<HTMLInputElement> & {
   form: UseFormReturn<UserType>;
   name: keyof UserType;
   label: string;
