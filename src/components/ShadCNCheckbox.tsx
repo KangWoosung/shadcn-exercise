@@ -56,7 +56,7 @@ const ShadCNCheckbox = ({
             className={cn(
               error && "border-destructive",
               className,
-              "flex flex-row items-center justify-start space-x-5 space-y-0  rounded-lg border p-4"
+              "flex flex-row items-center justify-start space-x-5 space-y-0  rounded-lg border p-4     has-[:checked]:border-green-500"
             )}
           >
             <FormControl>
